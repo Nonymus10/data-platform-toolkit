@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "data-platform-toolkit",
-      "source": "..",
+      "source": ".",
       "description": "Specialized agents and skills for data platform engineering — Trino optimization, Java testing, and K8s deployment."
     }
   ]
