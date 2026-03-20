@@ -2,12 +2,22 @@
   "name": "data-platform-toolkit",
   "description": "A Claude Code plugin providing specialized agents and skills for data platform engineering — covering Trino query optimization, Java testing standards, and Kubernetes deployment best practices.",
   "agents": [
-    "../agents/data-engineer.md",
-    "../agents/java-engineer.md"
+    {
+      "path": "../agents/data-engineer.md"
+    },
+    {
+      "path": "../agents/java-engineer.md"
+    }
   ],
   "skills": [
-    "../skills/trino-optimizer/SKILL.md",
-    "../skills/java-testing/SKILL.md",
-    "../skills/k8s-deployer/SKILL.md"
+    {
+      "path": "../skills/trino-optimizer/SKILL.md"
+    },
+    {
+      "path": "../skills/java-testing/SKILL.md"
+    },
+    {
+      "path": "../skills/k8s-deployer/SKILL.md"
+    }
   ]
 }
