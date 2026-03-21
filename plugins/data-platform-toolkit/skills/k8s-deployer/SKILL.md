@@ -26,7 +26,7 @@ containers:
 
 ## Rule 2: Readiness Probes Must Target `/healthz` or Actuator Health
 
-Every Deployment MUST include a `readinessProbe` that hits either `/healthz` (for Go/Python services) or `/actuator/health` (for Spring Boot / JVM services). Without a readiness probe, Kubernetes will route traffic to pods that aren't ready, causing user-facing errors.
+Every Deployment MUST include a `readinessProbe` that hits either `/healthz` (for Go/Python services) or `/actuator/health` (for Spring Boot / JVM services). Without a readiness probe, Kubernetes will route traffic to pods that are not ready, causing user-facing errors.
 
 ```yaml
 # For Go / Python services

@@ -1,5 +1,8 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "Synapse",
+  "version": "1.0.0",
+  "description": "Marketplace for the data-platform-toolkit Claude Code plugin.",
   "owner": {
     "name": "Nonymus10"
   },

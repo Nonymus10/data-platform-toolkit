@@ -9,7 +9,7 @@ When writing or reviewing Trino queries against Apache Iceberg tables, you MUST 
 
 ## Rule 1: Always Filter by Partition Keys
 
-Every query MUST include a filter on the table's partition columns (e.g., `dt`, `region`, `event_date`). Full table scans on Iceberg tables are never acceptable — they blow up compute costs and can destabilize the cluster. If no partition filter exists, reject the query and ask the author to add one.
+Every query MUST include a filter on the table's partition columns (e.g., `dt`, `region`, `event_date`). Full table scans on Iceberg tables are never acceptable - they blow up compute costs and can destabilize the cluster. If no partition filter exists, reject the query and ask the author to add one.
 
 ```sql
 -- BAD: full table scan
@@ -21,7 +21,7 @@ SELECT * FROM iceberg.tax.transactions WHERE dt = '2026-03-21' AND amount > 1000
 
 ## Rule 2: Never Use Cross Joins
 
-Cross joins on large Iceberg tables will produce catastrophic data explosions. Always use explicit `JOIN ... ON` conditions. If a cross join is detected in a query, flag it immediately as a blocker — no exceptions.
+Cross joins on large Iceberg tables will produce catastrophic data explosions. Always use explicit `JOIN ... ON` conditions. If a cross join is detected in a query, flag it immediately as a blocker - no exceptions.
 
 ```sql
 -- BAD: cross join
@@ -33,7 +33,7 @@ SELECT * FROM table_a a JOIN table_b b ON a.id = b.ref_id;
 
 ## Rule 3: Prefer Predicate Pushdown-Friendly Patterns
 
-Structure `WHERE` clauses so that Iceberg's metadata filtering and Trino's predicate pushdown can eliminate files early. Avoid wrapping partition columns in functions (e.g., `CAST`, `DATE_FORMAT`, `SUBSTR`) — this defeats file pruning and forces full partition scans.
+Structure `WHERE` clauses so that Iceberg's metadata filtering and Trino's predicate pushdown can eliminate files early. Avoid wrapping partition columns in functions (e.g., `CAST`, `DATE_FORMAT`, `SUBSTR`) - this defeats file pruning and forces full partition scans.
 
 ```sql
 -- BAD: function on partition column defeats pushdown

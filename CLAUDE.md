@@ -8,10 +8,14 @@ This is a **Claude Code plugin** called `data-platform-toolkit`. It is not a tra
 
 ## Architecture
 
-The plugin manifest lives at `.claude-plugin/plugin.json` and wires together two types of components:
+This repo follows the same plugin packaging model as the Claude Code reference plugins:
 
-- **Skills** (`skills/*/SKILL.md`): Reusable rule sets with YAML frontmatter (`name`, `description`) and a Markdown body containing domain-specific rules. Skills are invoked by name (e.g., `/trino-optimizer`) and can be composed into agents.
-- **Agents** (`agents/*.md`): Persona definitions with YAML frontmatter (`name`, `skills[]`) and a system prompt body. Agents combine multiple skills and define how/when to apply them. Invoked via `@agent-name`.
+- **Marketplace manifest**: `.claude-plugin/marketplace.json`
+- **Plugin package root**: `plugins/data-platform-toolkit/`
+- **Plugin metadata**: `plugins/data-platform-toolkit/.claude-plugin/plugin.json`
+- **Auto-discovered components**:
+  - Agents in `plugins/data-platform-toolkit/agents/*.md`
+  - Skills in `plugins/data-platform-toolkit/skills/*/SKILL.md`
 
 ### Skill → Agent Mapping
 
@@ -26,6 +30,6 @@ The plugin manifest lives at `.claude-plugin/plugin.json` and wires together two
 
 - Skill rules should be strict and enforceable (e.g., "MUST", "never", "reject if"). Vague guidance gets ignored.
 - Agent system prompts should specify *when* to apply each skill, not just list them.
-- The `plugin.json` manifest uses relative paths from `.claude-plugin/` — all paths start with `../`.
-- Adding a new skill requires: creating `skills/<name>/SKILL.md` with frontmatter, and adding the path to `plugin.json`'s `skills` array.
-- Adding a new agent requires: creating `agents/<name>.md` with frontmatter listing its skills, and adding the path to `plugin.json`'s `agents` array.
+- Do not list `agents` or `skills` arrays in `plugin.json`; Claude discovers components from folder structure at install/runtime.
+- Adding a new skill requires creating `plugins/data-platform-toolkit/skills/<name>/SKILL.md` with valid frontmatter.
+- Adding a new agent requires creating `plugins/data-platform-toolkit/agents/<name>.md` with valid frontmatter and `skills[]`.

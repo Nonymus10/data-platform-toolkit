@@ -36,12 +36,14 @@ Clone the repo and add it as a local marketplace:
 
 ```bash
 git clone https://github.com/Nonymus10/data-platform-toolkit.git
+cd data-platform-toolkit
 ```
 
 Then inside Claude Code:
 
 ```
-/plugin marketplace add ./data-platform-toolkit
+/plugin marketplace add .
+/plugin install data-platform-toolkit@Nonymus10-data-platform-toolkit
 ```
 
 ### Option 3: Try it without installing
@@ -49,7 +51,7 @@ Then inside Claude Code:
 Load the plugin for a single session using the `--plugin-dir` flag:
 
 ```bash
-claude --plugin-dir ./data-platform-toolkit
+claude --plugin-dir ./plugins/data-platform-toolkit
 ```
 
 ## Usage
@@ -65,17 +67,18 @@ Once installed, you can:
 ```
 data-platform-toolkit/
 ├── .claude-plugin/
-│   └── plugin.json          # Plugin manifest
-├── agents/
-│   ├── data-engineer.md     # Data engineer agent
-│   └── java-engineer.md     # Java engineer agent
-├── skills/
-│   ├── trino-optimizer/
-│   │   └── SKILL.md         # Trino query optimization rules
-│   ├── java-testing/
-│   │   └── SKILL.md         # Java testing standards
-│   └── k8s-deployer/
-│       └── SKILL.md         # Kubernetes deployment rules
+│   └── marketplace.json      # Marketplace manifest
+├── plugins/
+│   └── data-platform-toolkit/
+│       ├── .claude-plugin/
+│       │   └── plugin.json   # Plugin metadata
+│       ├── agents/
+│       │   ├── data-engineer.md
+│       │   └── java-engineer.md
+│       └── skills/
+│           ├── trino-optimizer/SKILL.md
+│           ├── java-testing/SKILL.md
+│           └── k8s-deployer/SKILL.md
 ├── CLAUDE.md
 └── README.md
 ```
