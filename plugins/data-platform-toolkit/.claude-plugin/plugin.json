@@ -1,8 +1,0 @@
-{
-  "name": "data-platform-toolkit",
-  "description": "A Claude Code plugin providing specialized agents and skills for data platform engineering — covering Trino query optimization, Java testing standards, and Kubernetes deployment best practices.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Nonymus10"
-  }
-}

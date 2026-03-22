@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "Synapse",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Marketplace for the data-platform-toolkit Claude Code plugin.",
   "owner": {
     "name": "Nonymus10"
@@ -9,8 +9,8 @@
   "plugins": [
     {
       "name": "data-platform-toolkit",
-      "source": "./plugins/data-platform-toolkit",
-      "description": "Specialized agents and skills for data platform engineering — Trino optimization, Java testing, and K8s deployment."
+      "source": "./plugins/Synapse",
+      "description": "Specialized agents and skills for data platform engineering — Trino optimization, Java testing, K8s deployment, service flow mapping, and surgical codebase transformation."
     }
   ]
 }
